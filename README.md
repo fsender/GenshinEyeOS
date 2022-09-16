@@ -12,7 +12,9 @@ GenshinEyeOS for Genshin Impact God's eye hardware (By 渣渣一块钱4个): Pro
 
 原作者: [渣渣一块钱4个](https://space.bilibili.com/14958846)
 
-硬件演示视频: [稻妻和蒙德电子版神之眼](https://www.bilibili.com/video/BV1sF411g7tc)
+原作者的硬件演示视频: [稻妻和蒙德电子版神之眼](https://www.bilibili.com/video/BV1sF411g7tc)
+
+原作者硬件项目: [神之眼挂件V1.2_ESP32U](https://oshwhub.com/Myzhazha/shen-zhi-yan-gua-jian-v1-2_esp32u), [璃月神之眼挂件](https://oshwhub.com/Myzhazha/li-yue-shen-zhi-yan-gua-jian)
 
 硬件可以去*海鲜市场*买到哒 搜索关键字: 电子神之眼;
 
