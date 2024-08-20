@@ -62,7 +62,6 @@ void setup()
     ips.fillScreen(0xffff);
     ips.drawString("EyeOS V" EYEOS_VERSION,55,80);
     ips.setCursor(52,100);
-    ips.print("神之眼 ");
     ips.println(eyeOS.getType()?"ST7789":"GC9A01");
   }
   for(int i=0;i<256;i++){
@@ -108,7 +107,7 @@ void loop()
 {
   uint32_t lastMicros;
   uint32_t stillingTime;
-  uint32_t playTimeMs = eyeOS.getPlayTimeMs();
+  uint32_t playTimeMs = 0x7fffffff; // eyeOS.getPlayTimeMs();
   File vFile;
   vFile = SD.open(mkPath(elPlay).c_str());
   mjpeg.setupMJpeg(&vFile, 0, 0, 240, 240, 8192, [](){eyeOS.lockSPI();}, [](){eyeOS.unlockSPI();});
@@ -118,21 +117,21 @@ void loop()
     auto btnState = eyeOS.readButton();
     mjpeg.drawMJpegFrame();
     if(btnState == eyeOSesp32::buttonClicked || (playTimeMs && millis()-stillingTime>=playTimeMs)){
-      Serial.printf("button clicked. Memory remain: %d\r\n",esp_get_free_heap_size());
+      //Serial.printf("button clicked. Memory remain: %d\r\n",esp_get_free_heap_size());
       eyeOS.getPlayOrder(elPlay,&elLoops); //更新 elLoops
       if(elPlay<elLoops-1) elPlay++;
       else elPlay = 0;
       break;
     }
     else if(btnState == eyeOSesp32::buttonDoubleClicked){
-      Serial.printf("button double clicked. Memory remain: %d\r\n",esp_get_free_heap_size());
+      //Serial.printf("button double clicked. Memory remain: %d\r\n",esp_get_free_heap_size());
       eyeOS.getPlayOrder(elPlay,&elLoops); //更新 elLoops
       if(elPlay) elPlay--;
       else elPlay = elLoops-1;
       break;
     }
     else if(btnState == eyeOSesp32::buttonLongClicked){
-      Serial.println("button long clicked. Will restart.");
+      //Serial.println("button long clicked. Will restart.");
       for(int i=0;i<256;i++){
         ips.setBrightness(255-i);
         delay(1);

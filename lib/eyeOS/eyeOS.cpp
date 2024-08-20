@@ -354,10 +354,10 @@ const char* eyeOSesp32::webpage_html_start = "\
 <html lang=\'zh-cn\'>\
 <head>\
 <meta charset=\'UTF-8\'>\
-<title>神之眼WiFi配网</title>\
+<title>WiFi配网</title>\
 </head>\
 <body>\
-<h1>欢迎进入神之眼WiFi配置页面</h1>\
+<h1>欢迎进入WiFi配置页面</h1>\
 <p><i>我是<b>烽瞳</b>, 叫我小烽就好。<br/>\
 在提瓦特大陆就没有无线连接了呐。<br/>\
 帮小烽找个WiFi好么, 可以么\? 可以么可以么\?\?<br/>\
@@ -375,13 +375,9 @@ const char* eyeOSesp32::webpage_html_update =
 const char* eyeOSesp32::webpage_html_edit = 
 "戳一下<a href=\"/edit\">介个链接</a>可以跳转至我的SD卡编辑器页面哟~ ~ ~<br/>";
 const char* eyeOSesp32::webpage_html_order = 
-"戳一下<a href=\"/order\">介个链接</a>可以跳转至神之眼显示顺序编辑器页面哟~ ~ ~<br/>";
+"戳一下<a href=\"/order\">介个链接</a>可以跳转至显示顺序编辑器页面哟~ ~ ~<br/>";
 const char* eyeOSesp32::webpage_html_mid = 
 "基于 <a href=\"https://www.freertos.org\">FreeRTOS</a> 构建<br/>\
-呵呵, 感谢固件作者: <a href=\"https://space.bilibili.com/180327370\">\
-FriendshipEnder (Bilibili同名)</a> 赐予我灵魂<br/>\
-以及神之眼硬件作者: <a href=\"https://space.bilibili.com/14958846\">\
-渣渣一块钱4个 (Bilibili同名)</a> 赐予我\"肉身\"<br/><br/>\
 软件版本: " EYEOS_VERSION " , 版权所有<br/>";
 const char* eyeOSesp32::webpage_html_end =
 "<br/><br/>ps:在SD卡根目录放一张start.jpg可以改启动图哦~~</p></body></html>";
@@ -604,7 +600,7 @@ void eyeOSesp32::offWifi(){
  * 处理web get请求
  */
 void eyeOSesp32::handleRoot() {
-  String osStatus="<br/>神之眼形状: ";
+  String osStatus="<br/>形状: ";
   if(xSemaphoreTake(btn_lock,25) == pdTRUE){ //此操作需要访问Button, 不属于WiFi锁的管辖范围内
     osStatus+=(btn.getPin() == EYEOS_BTN_PIN_LIYUE)?"方":"圆";
     xSemaphoreGive(btn_lock);
