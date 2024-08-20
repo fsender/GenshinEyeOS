@@ -264,7 +264,7 @@ protected:
   uint8_t playAlpha=0;         //覆盖层的透明度(如果有覆盖层)
   String lastPlayingFile;      //上次播放的文件
   char playOrder[8];
-  uint32_t playShowTime=0;
+  uint32_t playShowTime=0x7fffffff;
 
   /* ------------------------------ WiFi相关处理函数 ------------------------------ */
   /** @note 以下资源均为 eyeOS_loopTask 任务独占函数, 访问这些函数必须使用互斥锁!!! 

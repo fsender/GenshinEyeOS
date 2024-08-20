@@ -34,7 +34,7 @@ bool MJPEGClass::setupMJpeg(Stream *input, int x, int y, int wLimit, int hLimit,
   _input_lock = lk;
   _input_unlock = ulk;
   if(_mjpeg_buf == nullptr) _mjpeg_buf = (uint8_t *)malloc(bufferSize);
-  else _mjpeg_buf = (uint8_t *)realloc(_mjpeg_buf, bufferSize);
+  //else _mjpeg_buf = (uint8_t *)realloc(_mjpeg_buf, bufferSize); //避免重新分配内存
   //if(mjpeg_buf == nullptr) dbg.printf("mjpeg_buf malloc failed!\n");
 
   //_mjpeg_buf = mjpeg_buf;

@@ -67,8 +67,8 @@ void eyeOSesp32::init(uint8_t initBrightness){
   }
   else{
     strcpy(playOrder,"hsflcby");
-    playShowTime = 10000;
-    playAlpha = 75;
+    playShowTime = 0x7fffffff; //更改默认数据
+    playAlpha = 100;           //更改默认数据
   }
   nvsData.end(); //关闭NVS
 

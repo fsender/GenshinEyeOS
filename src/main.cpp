@@ -107,7 +107,7 @@ void loop()
 {
   uint32_t lastMicros;
   uint32_t stillingTime;
-  uint32_t playTimeMs = 0x7fffffff; // eyeOS.getPlayTimeMs();
+  uint32_t playTimeMs = eyeOS.getPlayTimeMs();
   File vFile;
   vFile = SD.open(mkPath(elPlay).c_str());
   mjpeg.setupMJpeg(&vFile, 0, 0, 240, 240, 8192, [](){eyeOS.lockSPI();}, [](){eyeOS.unlockSPI();});
@@ -151,7 +151,7 @@ void loop()
     if(elPlay>=elLoops) elPlay=elLoops-1;
     elLastPlay = elPlay;
   }
-  mjpeg.endMJpeg();
+  //mjpeg.endMJpeg(); //避免内存复用
   vFile.close();
 }
 void drawGradientJpg(const char *oldJpg, const char *newJpg){
